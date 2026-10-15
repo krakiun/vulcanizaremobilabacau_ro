@@ -23,3 +23,9 @@ front matter-ul (`title`, `h1`, `description`, `lead`, `excerpt`, `icon`, `date`
 Localitate nouă: copiază un fișier din `content/zone-deservite/` și schimbă `name`, `url`, `tip`, `zona`
 (`oras` sau `comuna`), `localitati`, `drumuri`, `situatii`, `faq` și textul. Dacă `name` apare și în
 `data/zones.yaml`, numele devine automat link pe Acasă și pe pagina Zone deservite.
+
+## Publicare automată (GitHub Pages)
+La fiecare `git push` pe `main`, workflow-ul `.github/workflows/deploy.yml` construiește site-ul cu Hugo
+și îl publică pe GitHub Pages, la https://vulcanizaremobila.ro (domeniul e în `static/CNAME`).
+Rulează și zilnic la 08:00 UTC, ca articolele cu dată în viitor să apară singure.
+Progresul se vede în tab-ul **Actions** al repository-ului.

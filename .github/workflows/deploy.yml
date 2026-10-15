@@ -1,0 +1,75 @@
+name: Deploy Hugo site to Pages
+
+on:
+  # Rulează workflow-ul la fiecare push pe branch-ul main
+  push:
+    branches: ["main"]
+
+  # Permite rularea manuală a workflow-ului din tab-ul Actions
+  workflow_dispatch:
+
+  # Rulează automat în fiecare zi la 08:00 UTC (11:00 România), pentru articolele programate
+  schedule:
+    - cron: '0 8 * * *'
+
+# Setează permisiunile GITHUB_TOKEN pentru a permite deployment pe Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite doar un deployment concurent
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Job pentru construirea site-ului
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.161.1
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        # publishDir din hugo.toml e pentru build local; în CI construim în ./public
+        run: |
+          hugo \
+            --minify \
+            --destination ./public \
+            --baseURL "https://vulcanizaremobila.ro/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # Job pentru deployment
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
