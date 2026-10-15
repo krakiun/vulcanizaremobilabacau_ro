@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" . "meta" true) }}
+<section style="padding-top:48px">
+  <div class="wrap">
+    <article class="prose post">{{ .Content }}</article>
+  </div>
+</section>
+
+{{ $others := where (where site.RegularPages "Section" .Section) "Permalink" "ne" .Permalink }}
+{{ with $others }}
+<section class="alt">
+  <div class="wrap">
+    <div class="center sec-head"><span class="eyebrow">Mai citește</span><h2>Alte articole din blog</h2></div>
+    <div class="svc-grid post-more" style="margin-top:0">{{ partial "post-cards.html" .ByWeight }}</div>
+  </div>
+</section>
+{{ end }}
+
+{{ partial "band.html" (dict) }}
+<div style="height:96px"></div>
+{{ end }}

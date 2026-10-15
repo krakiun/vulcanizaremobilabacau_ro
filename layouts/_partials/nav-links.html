@@ -1,0 +1,4 @@
+{{- $cur := .RelPermalink -}}
+{{- range site.Menus.main -}}
+<a href="{{ .URL }}"{{ if or (eq .URL $cur) (and (ne .URL "/") (hasPrefix $cur .URL)) }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end -}}

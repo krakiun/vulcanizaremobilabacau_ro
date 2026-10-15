@@ -1,0 +1,8 @@
+{{ define "main" }}
+<section class="page-hero"><div class="wrap"><ol class="crumbs"><li><a href="/">Acasă</a></li><li aria-current="page">{{ .LinkTitle }}</li></ol><h1>{{ .Params.h1 }}</h1><p class="lead">Ultima actualizare: {{ .Lastmod.Format "2006-01-02" }}</p></div></section>
+<section>
+  <div class="wrap prose">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}

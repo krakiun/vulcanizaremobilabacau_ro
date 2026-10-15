@@ -1,0 +1,53 @@
+# Vulcanizare Mobilă Bacău – site Hugo
+# Rulare:  hugo   (din acest folder)
+# Rezultatul ajunge în ../vulcanizaremobila.ro/ – folderul care se urcă pe hosting.
+
+baseURL = "https://vulcanizaremobila.ro/"
+locale = "ro-RO"
+defaultContentLanguage = "ro"
+title = "Vulcanizare Mobilă Bacău"
+publishDir = "../vulcanizaremobila.ro"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+disableHugoGeneratorInject = true
+
+[params]
+  brand = "Vulcanizare Mobilă Bacău"
+  phone = "0756 492 992"
+  tel = "0756492992"
+  intl = "+40756492992"
+  whatsapp = "https://wa.me/40756492992?text=Bun%C4%83%2C%20am%20nevoie%20de%20vulcanizare%20mobil%C4%83%20%C3%AEn%20Bac%C4%83u."
+  description = "Vulcanizare mobilă non-stop în Bacău și împrejurimi: reparații pană, montaj și echilibrare roți, schimb anvelope vară/iarnă și tractare auto, la domiciliu, la birou sau pe drum."
+
+[frontmatter]
+  lastmod = [":fileModTime", ":default"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.goldmark.extensions.typographer]
+  disable = true
+
+[[menus.main]]
+  name = "Acasă"
+  url = "/"
+  weight = 1
+[[menus.main]]
+  name = "Servicii"
+  url = "/servicii/"
+  weight = 2
+[[menus.main]]
+  name = "Zone deservite"
+  url = "/zone-deservite/"
+  weight = 3
+[[menus.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 4
+[[menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 5
+
+[markup.goldmark.parser]
+  autoHeadingIDType = "github-ascii"

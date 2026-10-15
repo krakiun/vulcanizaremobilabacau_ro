@@ -1,0 +1,1 @@
+<a class="{{ .cls | default "btn btn-primary" }}" href="tel:{{ site.Params.tel }}">{{ partial "icon.html" "i-phone" }}{{ .label | default (print "Sună acum: " site.Params.phone) }}</a>

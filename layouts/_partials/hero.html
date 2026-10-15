@@ -1,0 +1,19 @@
+{{- /* Antetul paginilor interioare. Parametri: page, toc, meta (data + timp de citit), cta (implicit true) */ -}}
+{{- $p := .page -}}
+{{- $cr := partial "crumbs.html" $p -}}
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs">{{ range $i, $c := $cr }}{{ if lt (add $i 1) (len $cr) }}<li><a href="{{ $c.RelPermalink }}">{{ $c.LinkTitle }}</a></li>{{ else }}<li aria-current="page">{{ $c.LinkTitle }}</li>{{ end }}{{ end }}</ol>
+    <h1>{{ $p.Params.h1 }}</h1>
+    {{- if .meta }}
+    <p class="post-meta"><time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date | time.Format ":date_long" }}</time> · {{ math.Max 1 (math.Round (div (float (partial "word-count.html" $p)) 200)) }} min de citit</p>
+    {{- end }}
+    <p class="lead">{{ $p.Params.lead }}</p>
+    {{- if .toc }}
+    <nav class="toc" aria-label="Cuprins servicii">{{ range hugo.Data.services }}<a href="#{{ .id }}">{{ .title }}</a>{{ end }}</nav>
+    {{- end }}
+    {{- if ne .cta false }}
+    <div class="hero-cta">{{ partial "btn-call.html" (dict) }}{{ partial "btn-wa.html" "" }}</div>
+    {{- end }}
+  </div>
+</section>

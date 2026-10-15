@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" .) }}
+<section>
+  <div class="wrap">
+    <div class="zone-cols">
+      <div class="zone-box reveal"><h3>{{ partial "icon.html" "i-pin" }}Cartiere din Bacău</h3>{{ partial "chips.html" hugo.Data.zones.cartiere }}</div>
+      <div class="zone-box reveal"><h3>{{ partial "icon.html" "i-route" }}Localități din județul Bacău</h3>{{ partial "chips.html" hugo.Data.zones.localitati }}</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center sec-head"><span class="eyebrow">Pagini dedicate</span><h2>Vulcanizare mobilă în orașele și comunele din jurul Bacăului</h2><p class="lead">Detalii despre fiecare localitate: satele în care intervenim, drumurile pe care te putem ajuta și întrebări frecvente.</p></div>
+    <div class="svc-grid" style="margin-top:0">{{ range .Pages.ByWeight }}<article class="svc reveal"><span class="ic">{{ partial "icon.html" "i-pin" }}</span><h3>{{ .Params.h1 }}</h3><p>{{ .Params.excerpt }}</p><a href="{{ .RelPermalink }}">Vezi pagina{{ partial "icon.html" "i-arrow" }}</a></article>{{ end }}</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap about-grid" style="align-items:start">
+    {{ .Content }}
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <span class="eyebrow">Întrebări</span>
+      <h2>Despre zona de intervenție</h2>
+      <p class="lead">Nu ți-ai găsit localitatea în listă? Sună-ne, probabil putem ajunge și acolo.</p>
+    </div>
+    <div class="reveal">{{ partial "faq.html" .Params.faq }}</div>
+  </div>
+</section>
+
+{{ partial "band.html" (dict "title" "Ești în Bacău sau în apropiere?" "text" "Sună-ne și îți spunem imediat în cât timp ajungem la tine.") }}
+<div style="height:96px"></div>
+{{ end }}

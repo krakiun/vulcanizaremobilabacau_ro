@@ -1,0 +1,1 @@
+{{ range $i, $f := . }}<details{{ if eq $i 0 }} open{{ end }}><summary>{{ $f.q }}<span class="pm">{{ partial "icon.html" "i-plus" }}</span></summary><p>{{ $f.a }}</p></details>{{ end }}

@@ -1,0 +1,79 @@
+{{- /* Date structurate JSON-LD (schema.org) pentru fiecare pagină. */ -}}
+{{- $site := strings.TrimSuffix "/" site.BaseURL -}}
+{{- $p := site.Params -}}
+{{- $offers := slice -}}
+{{- range hugo.Data.services -}}
+  {{- $offers = $offers | append (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" .title "description" .short "url" (printf "%s/servicii/#%s" $site .id) "areaServed" (dict "@type" "City" "name" "Bacău"))) -}}
+{{- end -}}
+{{- $area := slice (dict "@type" "City" "name" "Bacău") (dict "@type" "AdministrativeArea" "name" "Județul Bacău") -}}
+{{- range slice "Onești" "Moinești" "Buhuși" "Comănești" "Târgu Ocna" -}}
+  {{- $area = $area | append (dict "@type" "City" "name" .) -}}
+{{- end -}}
+{{- $business := dict
+  "@type" "AutoRepair" "@id" (print $site "/#business") "name" $p.brand "url" (print $site "/")
+  "telephone" $p.intl "image" (print $site "/assets/og-image.png") "logo" (print $site "/assets/favicon.svg")
+  "priceRange" "$$" "description" $p.description
+  "address" (dict "@type" "PostalAddress" "addressLocality" "Bacău" "addressRegion" "Bacău" "addressCountry" "RO")
+  "geo" (dict "@type" "GeoCoordinates" "latitude" 46.5671 "longitude" 26.9146)
+  "openingHoursSpecification" (dict "@type" "OpeningHoursSpecification"
+    "dayOfWeek" (slice "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
+    "opens" "00:00" "closes" "23:59")
+  "areaServed" $area
+  "contactPoint" (dict "@type" "ContactPoint" "telephone" $p.intl "contactType" "customer service" "availableLanguage" "ro")
+  "hasOfferCatalog" (dict "@type" "OfferCatalog" "name" "Servicii vulcanizare mobilă Bacău" "itemListElement" $offers)
+-}}
+{{- $website := dict "@type" "WebSite" "@id" (print $site "/#website") "url" (print $site "/") "name" $p.brand
+  "inLanguage" "ro-RO" "publisher" (dict "@id" (print $site "/#business")) -}}
+{{- $graph := slice $website -}}
+{{- if ne .Kind "404" -}}
+
+{{- $url := .Permalink -}}
+{{- $graph = slice $business $website (dict
+  "@type" (.Params.schema_type | default "WebPage") "@id" (print $url "#webpage") "url" $url "name" .Title
+  "description" .Description "inLanguage" "ro-RO" "isPartOf" (dict "@id" (print $site "/#website"))
+  "about" (dict "@id" (print $site "/#business"))) -}}
+{{- if not .IsHome -}}
+  {{- $items := slice -}}
+  {{- range $i, $c := partial "crumbs.html" . -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" $c.LinkTitle "item" $c.Permalink) -}}
+  {{- end -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $items) -}}
+{{- end -}}
+
+{{- $faq := cond .IsHome hugo.Data.faq .Params.faq -}}
+{{- with $faq -}}
+  {{- $q := slice -}}
+  {{- range . -}}
+    {{- $q = $q | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
+  {{- end -}}
+  {{- $graph = $graph | append (dict "@type" "FAQPage" "@id" (print $url "#faq") "mainEntity" $q) -}}
+{{- end -}}
+
+{{- if and (eq .Section "blog") (not .IsPage) -}}
+  {{- $posts := slice -}}
+  {{- range .Pages.ByWeight -}}
+    {{- $posts = $posts | append (dict "@type" "BlogPosting" "headline" .Params.h1 "url" .Permalink "datePublished" (.Date.Format "2006-01-02")) -}}
+  {{- end -}}
+  {{- $graph = $graph | append (dict "@type" "Blog" "@id" (print $url "#blog") "url" $url "name" (print "Blog " $p.brand)
+    "inLanguage" "ro-RO" "publisher" (dict "@id" (print $site "/#business")) "blogPost" $posts) -}}
+{{- end -}}
+
+{{- with .Params.zona -}}
+  {{- $graph = $graph | append (dict
+    "@type" "Service" "@id" (print $url "#service") "name" (print "Vulcanizare mobilă " $.Params.name) "serviceType" "Vulcanizare mobilă"
+    "url" $url "description" $.Description "provider" (dict "@id" (print $site "/#business"))
+    "areaServed" (dict "@type" (cond (eq . "comuna") "AdministrativeArea" "City") "name" $.Params.name
+      "containedInPlace" (dict "@type" "AdministrativeArea" "name" "Județul Bacău"))
+    "availableChannel" (dict "@type" "ServiceChannel" "servicePhone" (dict "@type" "ContactPoint" "telephone" $p.intl "contactType" "customer service"))) -}}
+{{- end -}}
+
+{{- if and (eq .Section "blog") .IsPage -}}
+  {{- $graph = $graph | append (dict
+    "@type" "BlogPosting" "@id" (print $url "#article") "mainEntityOfPage" (dict "@id" (print $url "#webpage"))
+    "headline" .Params.h1 "description" .Description "image" (print $site "/assets/og-image.png")
+    "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "ro-RO"
+    "wordCount" (partial "word-count.html" .) "author" (dict "@id" (print $site "/#business")) "publisher" (dict "@id" (print $site "/#business"))
+    "isPartOf" (dict "@id" (print $site "/blog/#blog"))) -}}
+{{- end -}}
+{{- end -}}
+{{- return $graph -}}

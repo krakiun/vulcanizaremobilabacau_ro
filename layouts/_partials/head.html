@@ -1,0 +1,35 @@
+{{- $title := .Title -}}
+{{- $desc := .Description -}}
+{{- $robots := .Params.robots | default "index, follow, max-image-preview:large, max-snippet:-1" -}}
+{{- if eq .Kind "404" -}}
+  {{- $title = "Pagina nu a fost găsită | Vulcanizare Mobilă Bacău" -}}
+  {{- $desc = "Pagina căutată nu există." -}}
+  {{- $robots = "noindex, follow" -}}
+{{- end -}}
+{{- $css := slice (resources.Get "css/base.css") (resources.Get "css/extra.css") | resources.Concat "assets/style.css" -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="robots" content="{{ $robots }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:site_name" content="{{ site.Params.brand }}">
+<meta property="og:type" content="{{ if and (eq .Section "blog") .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "assets/og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="geo.region" content="RO-BC">
+<meta name="geo.placename" content="Bacău">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (partial "schema.html" .) | jsonify | safeJS }}</script>

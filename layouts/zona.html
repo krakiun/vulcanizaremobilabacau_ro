@@ -1,0 +1,71 @@
+{{ define "main" }}
+{{ $name := .Params.name }}
+{{ partial "hero.html" (dict "page" .) }}
+<section>
+  <div class="wrap">
+    <div class="center sec-head">
+      <span class="eyebrow">Când ne chemi</span>
+      <h2>Vulcanizare mobilă în {{ $name }}, oriunde ai rămas</h2>
+    </div>
+    <div class="strip-grid">{{ range .Params.situatii }}
+      <div class="feat reveal"><span class="ic">{{ partial "icon.html" .icon }}</span><div><h3>{{ .titlu }}</h3><p>{{ .text }}</p></div></div>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap about-grid" style="align-items:start">
+    <div class="prose post reveal">{{ .Content }}</div>
+    <div class="zone-box reveal">
+      <h3>{{ partial "icon.html" "i-pin" }}Localități deservite în {{ .Params.tip }} {{ $name }}</h3>
+      <ul class="chips">{{ range .Params.localitati }}<li>{{ . }}</li>{{ end }}</ul>
+      <h3 style="margin-top:26px">{{ partial "icon.html" "i-route" }}Drumuri pe care intervenim</h3>
+      <ul class="chips">{{ range .Params.drumuri }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Ce facem</span>
+      <h2>Servicii de vulcanizare mobilă în {{ $name }}</h2>
+      <p class="lead">Aceleași lucrări ca într-o vulcanizare clasică, făcute la adresa ta, cu echipament mobil.</p>
+    </div>
+    <div class="svc-grid">{{ range first 6 hugo.Data.services }}<article class="svc reveal"><span class="ic">{{ partial "icon.html" .icon }}</span><h3>{{ .title }}</h3><p>{{ .short }}</p><a href="/servicii/#{{ .id }}">Detalii serviciu{{ partial "icon.html" "i-arrow" }}</a></article>{{ end }}</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Simplu și rapid</span><h2>Cum ne chemi în {{ $name }}</h2><p class="lead">De la apel până la drum liber, în patru pași.</p></div>
+    {{ partial "steps.html" . }}
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <span class="eyebrow">Întrebări</span>
+      <h2>Vulcanizare mobilă în {{ $name }}: întrebări frecvente</h2>
+      <p class="lead">Pentru orice altă întrebare, sună-ne. Răspundem non-stop.</p>
+      <a class="btn btn-primary" style="margin-top:24px" href="tel:{{ site.Params.tel }}">{{ partial "icon.html" "i-phone" }}Sună acum</a>
+    </div>
+    <div class="reveal">{{ partial "faq.html" .Params.faq }}</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center sec-head"><span class="eyebrow">Zone deservite</span><h2>Intervenim și în alte localități din județ</h2></div>
+    <div class="zone-box reveal">
+      {{ $others := slice }}{{ range where (where site.RegularPages "Section" "zone-deservite") "Permalink" "ne" .Permalink }}{{ $others = $others | append .Params.name }}{{ end }}
+      {{ partial "chips.html" $others }}
+      <p style="margin-top:18px;color:var(--muted)">Vezi lista completă pe pagina <a href="/zone-deservite/" style="color:var(--accent-ink);font-weight:600">zone deservite</a> sau citește <a href="/blog/ce-faci-cand-ai-pana-in-bacau/" style="color:var(--accent-ink);font-weight:600">ce faci când ai pană</a>.</p>
+    </div>
+  </div>
+</section>
+
+{{ partial "band.html" (dict "title" (print "Ai pană în " $name "?") "text" "Sună-ne și îți spunem prețul și timpul estimat înainte să plecăm spre tine.") }}
+<div style="height:96px"></div>
+{{ end }}

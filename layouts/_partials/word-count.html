@@ -1,0 +1,1 @@
+{{- /* Cuvintele articolului, fără caseta de apel {{< cta >}}. */ -}}{{- return (countwords (plainify (replaceRE `(?s)<div class="note post-cta">.*?</div></div></div>` "" .Content))) -}}

@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" . "toc" true) }}
+<section style="padding-top:40px">
+  <div class="wrap">{{ range hugo.Data.services }}
+    <article class="svc-detail reveal" id="{{ .id }}">
+      <span class="ic">{{ partial "icon.html" .icon }}</span>
+      <div class="prose">
+        <h2>{{ .title }} în Bacău</h2>
+        {{ range .body }}<p>{{ . }}</p>{{ end }}
+        <ul class="checks">{{ range .bullets }}<li>{{ partial "icon.html" "i-check" }}{{ . }}</li>{{ end }}</ul>
+        {{ partial "btn-call.html" (dict "label" (print "Solicită: " site.Params.phone)) }}
+      </div>
+    </article>{{ end }}
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Simplu și rapid</span><h2>Cum comanzi o intervenție</h2><p class="lead">De la apel până la drum liber, în patru pași.</p></div>
+    {{ partial "steps.html" . }}
+  </div>
+</section>
+
+{{ partial "band.html" (dict "title" "Ai nevoie de unul dintre aceste servicii?" "text" "Sună-ne acum și îți spunem prețul și cât durează până ajungem.") }}
+<div style="height:96px"></div>
+{{ end }}

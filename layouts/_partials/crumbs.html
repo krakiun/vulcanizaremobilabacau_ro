@@ -1,0 +1,1 @@
+{{- $c := slice -}}{{- range .Ancestors.Reverse -}}{{- $c = $c | append . -}}{{- end -}}{{- $c = $c | append . -}}{{- return $c -}}

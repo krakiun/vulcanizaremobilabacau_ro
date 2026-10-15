@@ -1,0 +1,8 @@
+<section class="band">
+  <div class="wrap">
+    <div class="band-inner reveal">
+      <div><h2>{{ .title | default "Ai pană chiar acum în Bacău?" }}</h2><p>{{ .text | default "Sună-ne — răspundem non-stop și pornim imediat spre tine." }}</p></div>
+      <a class="btn" href="tel:{{ site.Params.tel }}">{{ partial "icon.html" "i-phone" }}{{ site.Params.phone }}</a>
+    </div>
+  </div>
+</section>

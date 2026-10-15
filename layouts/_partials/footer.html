@@ -1,0 +1,39 @@
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo">{{ partial "logo.html" . }}</a>
+        <p style="margin-top:14px;max-width:380px">Vulcanizare mobilă non-stop în Bacău și împrejurimi: reparații pană, montaj și echilibrare roți, schimb sezonier și tractare auto. Venim la tine, oriunde ai avea nevoie.</p>
+        <div class="anpc">
+          <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">ANPC – SAL</a>
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener nofollow">SOL – soluționare online</a>
+        </div>
+      </div>
+      <div>
+        <h4>Servicii</h4>
+        <ul>{{ range first 6 hugo.Data.services }}<li><a href="/servicii/#{{ .id }}">{{ .title }}</a></li>{{ end }}</ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:{{ site.Params.tel }}">{{ site.Params.phone }}</a></li>
+          <li><a href="{{ site.Params.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Program: non-stop 24/7</li>
+          <li><a href="/zone-deservite/">Zone deservite</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Pagina de contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© {{ now.Year }} {{ site.Params.brand }}. Toate drepturile rezervate.</span>
+      <span><a href="/confidentialitate/">Politica de confidențialitate</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="call" href="tel:{{ site.Params.tel }}">{{ partial "icon.html" "i-phone" }}Sună: {{ site.Params.phone }}</a>
+  <a class="wa" href="{{ site.Params.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">{{ partial "icon.html" "i-wa" }}</a>
+</div>
+<script src="/assets/main.js" defer></script>

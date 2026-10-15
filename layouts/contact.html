@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" .) }}
+<section>
+  <div class="wrap">
+    {{ partial "contact-cards.html" . }}
+    <div class="about-grid" style="margin-top:56px;align-items:start">
+      <div class="reveal">
+        <h2 style="font-size:28px">Date de contact</h2>
+        <ul class="info-list">
+          <li>{{ partial "icon.html" "i-phone" }}<div><b>Telefon:</b> <a href="tel:{{ site.Params.tel }}">{{ site.Params.phone }}</a></div></li>
+          <li>{{ partial "icon.html" "i-wa" }}<div><b>WhatsApp:</b> <a href="{{ site.Params.whatsapp }}" target="_blank" rel="noopener">{{ site.Params.phone }}</a></div></li>
+          <li>{{ partial "icon.html" "i-clock" }}<div><b>Program:</b> non-stop, 24/7, inclusiv weekend și sărbători</div></li>
+          <li>{{ partial "icon.html" "i-pin" }}<div><b>Zonă:</b> Bacău și împrejurimi — <a href="/zone-deservite/" style="color:var(--accent-ink);font-weight:600">vezi zonele deservite</a></div></li>
+        </ul>
+      </div>
+      <div class="prose reveal">
+        {{ .Content }}
+      </div>
+    </div>
+    <iframe class="map reveal" title="Hartă Bacău" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bac%C4%83u%2C%20Rom%C3%A2nia&z=12&output=embed"></iframe>
+  </div>
+</section>
+<div style="height:24px"></div>
+{{ end }}

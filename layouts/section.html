@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" .) }}
+<section style="padding-top:56px">
+  <div class="wrap">
+    <div class="svc-grid" style="margin-top:0">{{ partial "post-cards.html" .Pages.ByWeight }}</div>
+  </div>
+</section>
+
+{{ partial "band.html" (dict) }}
+<div style="height:96px"></div>
+{{ end }}

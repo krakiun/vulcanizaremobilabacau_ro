@@ -1,0 +1,156 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="dot"></span>Disponibili acum în Bacău · Non-stop 24/7</span>
+      <h1>Vulcanizare Mobilă Bacău <span class="hl">Non-Stop 24/7</span></h1>
+      <p class="lead">Ai făcut pană? Nu mai căuta o vulcanizare deschisă. Venim noi la tine — acasă, la birou sau pe marginea drumului — și reparăm, montăm și echilibrăm roțile pe loc, zi și noapte, pe orice vreme.</p>
+      <div class="hero-cta">{{ partial "btn-call.html" (dict) }}{{ partial "btn-wa.html" "" }}</div>
+      <div class="trust">
+        <div>{{ partial "icon.html" "i-check" }}Intervenție rapidă în Bacău</div>
+        <div>{{ partial "icon.html" "i-check" }}Preț comunicat din start</div>
+        <div>{{ partial "icon.html" "i-check" }}Echipamente profesionale</div>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="float f1"><span class="ic">{{ partial "icon.html" "i-clock" }}</span><div><b>24/7</b><small>inclusiv weekend și sărbători</small></div></div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="tire" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#0b0f17"/><g fill="#1f2937"><rect x="94" y="2" width="12" height="18" rx="3"/><rect x="94" y="180" width="12" height="18" rx="3"/><rect x="2" y="94" width="18" height="12" rx="3"/><rect x="180" y="94" width="18" height="12" rx="3"/><rect x="26" y="26" width="12" height="18" rx="3" transform="rotate(-45 32 35)"/><rect x="162" y="156" width="12" height="18" rx="3" transform="rotate(-45 168 165)"/><rect x="162" y="26" width="12" height="18" rx="3" transform="rotate(45 168 35)"/><rect x="26" y="156" width="12" height="18" rx="3" transform="rotate(45 32 165)"/></g><circle cx="100" cy="100" r="62" fill="#cbd5e1"/><circle cx="100" cy="100" r="54" fill="#e2e8f0"/><g stroke="#94a3b8" stroke-width="10" stroke-linecap="round"><path d="M100 86V52"/><path d="M113 96l32-10"/><path d="M108 112l20 27"/><path d="M92 112l-20 27"/><path d="M87 96l-32-10"/></g><circle cx="100" cy="100" r="16" fill="#f97316"/><circle cx="100" cy="100" r="6" fill="#fff"/></svg>
+        <div class="road"></div>
+      </div>
+      <div class="float f2"><span class="ic">{{ partial "icon.html" "i-pin" }}</span><div><b>Venim la tine</b><small>Bacău și împrejurimi</small></div></div>
+      <div class="hero-call">
+        <div><small>Dispecerat non-stop</small><br><a class="num" href="tel:{{ site.Params.tel }}">{{ site.Params.phone }}</a></div>
+        <a class="btn btn-ghost" href="/servicii/">Vezi serviciile</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-grid">
+    <div class="feat reveal"><span class="ic">{{ partial "icon.html" "i-clock" }}</span><div><h3>Program non-stop</h3><p>Suntem disponibili în orice zi și la orice oră, inclusiv noaptea și de sărbători.</p></div></div>
+    <div class="feat reveal"><span class="ic">{{ partial "icon.html" "i-bolt" }}</span><div><h3>Intervenții rapide</h3><p>O pană e stresantă. Plecăm imediat spre tine și rezolvăm problema pe loc.</p></div></div>
+    <div class="feat reveal"><span class="ic">{{ partial "icon.html" "i-cloud" }}</span><div><h3>Pe orice vreme</h3><p>Ploaie, ger sau caniculă — venim oricum, cu un tarif corect, stabilit de la început.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center sec-head">
+      <span class="eyebrow">Când ne chemi</span>
+      <h2>Vulcanizare mobilă pentru orice situație în Bacău</h2>
+      <p class="lead">Fie că e o urgență în trafic, fie că vrei doar să scapi de cozile de la service, venim noi la tine.</p>
+    </div>
+    <div class="cards-4">
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-alert" }}</span><h3>Ai făcut pană în trafic</h3><p>Oprește în siguranță, pornește avariile și sună-ne. Venim la locul în care te afli.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-home" }}</span><h3>Roată dezumflată la bloc</h3><p>Ai găsit dimineața roata pe jantă? Reparăm pana în parcare, înainte să pleci la muncă.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-snow" }}</span><h3>Schimb sezonier</h3><p>Trecem de pe vară pe iarnă la tine acasă, fără programări și fără ore de așteptare.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-building" }}</span><h3>Flotă sau dubă de serviciu</h3><p>Venim la sediul firmei și ne ocupăm de toate mașinile, cu factură.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="servicii">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Ce facem</span>
+      <h2>Servicii de vulcanizare mobilă în Bacău</h2>
+      <p class="lead">Un atelier de vulcanizare pe roți, dotat cu tot ce trebuie pentru a-ți repune mașina pe drum fără să mai treci pe la service.</p>
+    </div>
+    <div class="svc-grid">{{ range first 6 hugo.Data.services }}<article class="svc reveal"><span class="ic">{{ partial "icon.html" .icon }}</span><h3>{{ .title }}</h3><p>{{ .short }}</p><a href="/servicii/#{{ .id }}">Detalii serviciu{{ partial "icon.html" "i-arrow" }}</a></article>{{ end }}</div>
+    <div class="center" style="margin-top:36px"><a class="btn btn-ghost" href="/servicii/">Toate serviciile{{ partial "icon.html" "i-arrow" }}</a></div>
+  </div>
+</section>
+
+<section id="despre">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <span class="eyebrow">De ce vulcanizare mobilă</span>
+      <h2>Service-ul vine la tine, nu tu la service</h2>
+      <p>Timpul și siguranța ta contează. De aceea am adus vulcanizarea acolo unde ai nevoie de ea în Bacău: în fața casei, în parcarea biroului, la sediul firmei sau pe marginea drumului.</p>
+      <p>Fără cozi, fără drumuri cu roata de rezervă și fără zile pierdute. Mașina de intervenție este echipată cu aparatură profesională de montaj și echilibrare, astfel încât lucrarea să fie la fel de bună ca într-un atelier clasic.</p>
+      <ul class="checks">
+        <li>{{ partial "icon.html" "i-check" }}Nu pierzi timp în service</li>
+        <li>{{ partial "icon.html" "i-check" }}Disponibilitate non-stop</li>
+        <li>{{ partial "icon.html" "i-check" }}Echipamente profesionale</li>
+        <li>{{ partial "icon.html" "i-check" }}Preț clar înainte de plecare</li>
+      </ul>
+    </div>
+    <div class="stats reveal">
+      <div class="stat dark"><b>24<span>/</span>7</b><p>disponibilitate, 365 de zile pe an</p></div>
+      <div class="stat"><b>0<span>%</span></b><p>timp pierdut la coada din service</p></div>
+      <div class="stat"><b>1<span> apel</span></b><p>și echipa e pe drum spre tine</p></div>
+      <div class="stat"><b><span>✓</span></b><p>preț clar, comunicat înainte de plecare</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center sec-head">
+      <span class="eyebrow">Tipuri de vehicule</span>
+      <h2>Pentru autoturisme, SUV-uri, dube și flote</h2>
+      <p class="lead">Avem echipamentele potrivite pentru majoritatea vehiculelor care circulă zilnic prin Bacău.</p>
+    </div>
+    <div class="cards-4">
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-car" }}</span><h3>Autoturisme și SUV-uri</h3><p>Jante din tablă sau aliaj, inclusiv dimensiuni mari și anvelope run-flat.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-van" }}</span><h3>Autoutilitare și dube</h3><p>Pentru curieri, meseriași și firme care nu își permit să stea pe loc.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-bus" }}</span><h3>Microbuze</h3><p>Intervenții pentru transport persoane, la autobază sau pe traseu.</p></div>
+      <div class="card reveal"><span class="ic">{{ partial "icon.html" "i-building" }}</span><h3>Flote de firmă</h3><p>Schimb sezonier și urgențe pentru toate mașinile firmei, cu factură.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center sec-head">
+      <span class="eyebrow">Zone deservite</span>
+      <h2>Vulcanizare mobilă în tot Bacăul și împrejurimi</h2>
+      <p class="lead">Intervenim în toate cartierele din Bacău și în localitățile din apropiere.</p>
+    </div>
+    <div class="zone-cols">
+      <div class="zone-box reveal"><h3>{{ partial "icon.html" "i-pin" }}Cartiere din Bacău</h3>{{ partial "chips.html" hugo.Data.zones.cartiere }}</div>
+      <div class="zone-box reveal"><h3>{{ partial "icon.html" "i-route" }}Localități din județ</h3>{{ partial "chips.html" (first 12 hugo.Data.zones.localitati) }}</div>
+    </div>
+    <div class="center" style="margin-top:32px"><a class="btn btn-ghost" href="/zone-deservite/">Vezi toate zonele{{ partial "icon.html" "i-arrow" }}</a></div>
+  </div>
+</section>
+
+<section class="alt" id="cum">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Simplu și rapid</span>
+      <h2>Cum funcționează</h2>
+      <p class="lead">De la apel până la drum liber, în patru pași.</p>
+    </div>
+    {{ partial "steps.html" . }}
+    <div class="note reveal" style="margin-top:28px"><span class="ic">{{ partial "icon.html" "i-tag" }}</span><div><h3>Prețuri corecte, comunicate înainte de intervenție</h3><p>Costul depinde de lucrare, de dimensiunea roților și de distanță. Îți spunem prețul la telefon, înainte să plecăm spre tine, ca să nu ai surprize la final.</p></div></div>
+  </div>
+</section>
+
+{{ partial "band.html" (dict) }}
+
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <span class="eyebrow">Întrebări frecvente</span>
+      <h2>Ce ne întreabă clienții din Bacău</h2>
+      <p class="lead">Răspunsuri scurte la cele mai frecvente întrebări. Pentru orice altceva, sună-ne.</p>
+      <a class="btn btn-primary" style="margin-top:24px" href="tel:{{ site.Params.tel }}">{{ partial "icon.html" "i-phone" }}Sună acum</a>
+    </div>
+    <div class="reveal">{{ partial "faq.html" hugo.Data.faq }}</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Contact</span>
+      <h2>Ai nevoie de vulcanizare mobilă în Bacău chiar acum?</h2>
+      <p class="lead">Alege varianta cea mai comodă pentru tine. Răspundem non-stop.</p>
+    </div>
+    {{ partial "contact-cards.html" . }}
+  </div>
+</section>
+{{ end }}

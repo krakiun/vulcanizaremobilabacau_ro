@@ -1,0 +1,10 @@
+{{ partial "sprite.html" . }}
+<header id="top">
+  <div class="wrap nav">
+    <a href="/" class="logo" aria-label="{{ site.Params.brand }} – pagina principală">{{ partial "logo.html" . }}</a>
+    <nav class="menu" aria-label="Meniu principal">{{ partial "nav-links.html" . }}</nav>
+    {{ partial "btn-call.html" (dict "label" site.Params.phone) }}
+    <button class="burger" aria-label="Deschide meniul" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mobile-menu" aria-label="Meniu mobil">{{ partial "nav-links.html" . }}</nav>
+</header>

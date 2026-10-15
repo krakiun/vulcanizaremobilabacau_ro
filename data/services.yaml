@@ -1,0 +1,97 @@
+# Serviciile: apar pe Acasă (primele 6), pe /servicii/, în footer și în schema JSON-LD.
+- id: reparatii-pana
+  icon: i-wrench
+  title: Reparații pană cauciuc
+  short: Vulcanizăm anvelopa pe loc, cu șnur, petic sau ciupercă, în funcție de tipul și poziția defectului.
+  body:
+  - 'Un cui, un șurub sau o margine de bordură sunt suficiente ca să rămâi cu roata dezumflată în parcare sau pe marginea drumului. Nu mai trebuie să schimbi singur roata și nici să mergi cu rezerva până la un atelier: echipa de vulcanizare mobilă vine la tine în Bacău și repară pana pe loc.'
+  - Demontăm anvelopa de pe jantă, verificăm interiorul și alegem metoda potrivită. Pentru înțepăturile din banda de rulare folosim ciupercă sau petic vulcanizat, care asigură o etanșare durabilă. La final reechilibrăm roata și o umflăm la presiunea recomandată de producător.
+  bullets:
+  - Reparații cu ciupercă, petic sau șnur
+  - Verificarea interiorului anvelopei
+  - Reechilibrare după reparație
+  - Umflare la presiunea corectă
+- id: montaj-anvelope
+  icon: i-tire
+  title: Montaj și demontaj anvelope
+  short: Montăm anvelope noi pe jante din tablă sau aliaj, direct acasă, la birou sau la sediul firmei.
+  body:
+  - Ți-ai cumpărat anvelope online sau din magazin? Nu trebuie să le cari la vulcanizare. Venim cu utilajele de montaj la adresa ta din Bacău și le montăm direct pe mașină.
+  - Folosim mașină de montaj cu protecție pentru jantele din aliaj, ca să evităm zgârieturile. Înlocuim valvele uzate la cerere și verificăm sensul de rulare și indicii de sarcină și viteză înainte de montaj.
+  bullets:
+  - Jante din tablă și aliaj
+  - Protecție la montaj pentru jante
+  - Înlocuire valve
+  - Verificare sens de rulare
+- id: echilibrare-roti
+  icon: i-balance
+  title: Echilibrare roți pe loc
+  short: Echilibrare computerizată cu aparatură mobilă profesională, pentru un condus fără vibrații.
+  body:
+  - Vibrațiile în volan la viteze mai mari, uzura neuniformă a anvelopelor sau senzația că mașina „trage” pot fi semne că roțile nu mai sunt echilibrate. Le echilibrăm direct la locație, cu un echipament computerizat identic cu cel dintr-un atelier.
+  - Recomandăm echilibrarea la fiecare montaj de anvelope, după o reparație și ori de câte ori simți vibrații. Este o operațiune rapidă care îți protejează suspensia, rulmenții și anvelopele.
+  bullets:
+  - Echilibrare computerizată
+  - Contragreutăți adezive pentru jante din aliaj
+  - Recomandată la fiecare montaj
+  - Protejează suspensia și anvelopele
+- id: schimb-sezonier
+  icon: i-snow
+  title: Schimb anvelope vară / iarnă
+  short: Trecem mașina de pe vară pe iarnă (și invers) în parcarea ta, fără programări la service și fără cozi.
+  body:
+  - 'Toamna și primăvara, cozile de la vulcanizările din Bacău pot dura ore întregi. Cu vulcanizarea mobilă stabilim o oră și venim noi la tine: schimbăm roțile, le echilibrăm și verificăm presiunea, în timp ce tu îți vezi de treabă.'
+  - Dacă ai anvelopele pe jante separate, schimbul e și mai rapid. Dacă le ai pe aceeași jantă, le demontăm și le montăm pe cele de sezon. Îți spunem și în ce stare sunt anvelopele scoase, ca să știi dacă rezistă încă un sezon.
+  bullets:
+  - Schimb roți complete sau doar anvelope
+  - Echilibrare inclusă la cerere
+  - Verificarea uzurii și a datei de fabricație
+  - Programare la ora care îți convine
+- id: inlocuire-roata
+  icon: i-rim
+  title: Înlocuire roată și cauciuc deteriorat
+  short: Când anvelopa nu mai poate fi reparată, montăm roata de rezervă sau o anvelopă nouă, ca să poți pleca în siguranță.
+  body:
+  - Nu orice pană se poate repara. Dacă flancul anvelopei este tăiat, umflat sau anvelopa a fost rulată dezumflată, reparația nu mai este sigură. În astfel de cazuri îți spunem sincer și îți propunem soluția potrivită.
+  - Putem monta roata de rezervă sau o anvelopă nouă pe care o ai deja. Dacă ai nevoie de o anvelopă, te ajutăm să găsești varianta potrivită pentru dimensiunea mașinii tale.
+  bullets:
+  - Montare roată de rezervă
+  - Înlocuire anvelopă cu flanc deteriorat
+  - Evaluare sinceră a reparabilității
+  - Ajutor la alegerea anvelopei
+- id: presiune-tpms
+  icon: i-gauge
+  title: Verificare presiune și senzori TPMS
+  short: Verificăm presiunea în toate roțile, uzura anvelopelor și funcționarea senzorilor de presiune.
+  body:
+  - Martorul de presiune aprins în bord nu înseamnă întotdeauna o pană. Poate fi o scădere de presiune din cauza frigului sau un senzor TPMS defect. Verificăm toate roțile, inclusiv rezerva, și reglăm presiunea conform specificațiilor.
+  - Presiunea corectă reduce consumul de combustibil, uzura anvelopelor și distanța de frânare. Este una dintre cele mai simple măsuri de siguranță pe care le poți lua.
+  bullets:
+  - Verificare presiune pe toate roțile
+  - Diagnostic martor TPMS
+  - Inspecție vizuală a uzurii
+  - Recomandări pentru siguranță
+- id: tractare-auto
+  icon: i-truck
+  title: Tractare auto și asistență rutieră
+  short: Dacă defecțiunea nu se poate rezolva pe loc, îți transportăm mașina în siguranță unde ai nevoie.
+  body:
+  - 'Uneori problema e mai mare decât o pană: jantă îndoită, mai multe roți avariate sau o defecțiune mecanică. Atunci organizăm tractarea mașinii până la service, acasă sau la adresa indicată de tine.'
+  - Ne suni o singură dată și ne ocupăm noi de tot, de la evaluarea situației la transportul mașinii, în Bacău și în împrejurimi.
+  bullets:
+  - Tractare în Bacău și împrejurimi
+  - Transport la service sau acasă
+  - Asistență în caz de defecțiune pe drum
+  - Un singur apel pentru tot
+- id: flote-firme
+  icon: i-building
+  title: Servicii pentru firme și flote auto
+  short: Schimb sezonier și intervenții pentru flote, direct la sediul firmei, cu programare și factură.
+  body:
+  - Pentru firmele cu mai multe mașini, să trimiți fiecare autoturism la vulcanizare înseamnă ore de muncă pierdute. Venim la sediul firmei, în parcare, și facem schimbul sezonier pentru toată flota, la un program stabilit împreună.
+  - Lucrăm cu autoturisme, autoutilitare și dube de serviciu. Emitem factură și putem stabili o colaborare pe termen lung pentru intervenții urgente.
+  bullets:
+  - Intervenții la sediul firmei
+  - Programare pentru întreaga flotă
+  - Factură pentru fiecare lucrare
+  - Prioritate la intervenții urgente

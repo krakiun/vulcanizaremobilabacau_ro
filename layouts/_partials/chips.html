@@ -1,0 +1,3 @@
+{{- /* Listă de zone; numele care au pagină proprie (Params.name) devin link-uri. */ -}}
+{{- $zp := where site.RegularPages "Section" "zone-deservite" -}}
+<ul class="chips">{{ range . }}{{ $n := . }}{{ with where $zp "Params.name" $n }}<li><a href="{{ (index . 0).RelPermalink }}">{{ $n }}</a></li>{{ else }}<li>{{ $n }}</li>{{ end }}{{ end }}</ul>
