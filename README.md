@@ -26,6 +26,6 @@ Localitate nouă: copiază un fișier din `content/zone-deservite/` și schimbă
 
 ## Publicare automată (GitHub Pages)
 La fiecare `git push` pe `main`, workflow-ul `.github/workflows/deploy.yml` construiește site-ul cu Hugo
-și îl publică pe GitHub Pages, la https://vulcanizaremobila.ro (domeniul e în `static/CNAME`).
+și îl publică pe GitHub Pages, la https://vulcanizaremobilabacau.ro (domeniul e setat în GitHub → Settings → Pages și în `static/CNAME`).
 Rulează și zilnic la 08:00 UTC, ca articolele cu dată în viitor să apară singure.
 Progresul se vede în tab-ul **Actions** al repository-ului.

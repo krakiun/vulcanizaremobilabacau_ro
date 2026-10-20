@@ -6,7 +6,7 @@ description: "Politica de confidențialitate a site-ului Vulcanizare Mobilă Bac
 layout: simple
 sitemap: {changefreq: yearly, priority: 0.2}
 ---
-Respectăm confidențialitatea vizitatorilor și clienților noștri. Această pagină explică ce date personale prelucrăm atunci când folosești site-ul vulcanizaremobila.ro sau ne contactezi, în conformitate cu Regulamentul (UE) 2016/679 (GDPR).
+Respectăm confidențialitatea vizitatorilor și clienților noștri. Această pagină explică ce date personale prelucrăm atunci când folosești site-ul vulcanizaremobilabacau.ro sau ne contactezi, în conformitate cu Regulamentul (UE) 2016/679 (GDPR).
 
 ### Ce date colectăm
 

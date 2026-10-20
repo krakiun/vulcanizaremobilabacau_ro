@@ -2,7 +2,7 @@
 # Rulare:  hugo   (din acest folder)
 # Rezultatul ajunge în ../vulcanizaremobila.ro/ – folderul care se urcă pe hosting.
 
-baseURL = "https://vulcanizaremobila.ro/"
+baseURL = "https://vulcanizaremobilabacau.ro/"
 locale = "ro-RO"
 defaultContentLanguage = "ro"
 title = "Vulcanizare Mobilă Bacău"
